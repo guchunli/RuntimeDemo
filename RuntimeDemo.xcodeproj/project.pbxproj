@@ -19,6 +19,9 @@
 		717869CE1EEFEFA3004E75C9 /* SubClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 717869CD1EEFEFA3004E75C9 /* SubClass.m */; };
 		717869D21EEFF734004E75C9 /* UIViewController+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 717869D11EEFF734004E75C9 /* UIViewController+Runtime.m */; };
 		717869D51EEFFE41004E75C9 /* RuntimeMethodHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 717869D41EEFFE41004E75C9 /* RuntimeMethodHelper.m */; };
+		71977B3A1F26D38600CBDBAF /* Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = 71977B371F26D38600CBDBAF /* Cat.m */; };
+		71977B3B1F26D38600CBDBAF /* Cat+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 71977B391F26D38600CBDBAF /* Cat+Extend.m */; };
+		71977B3F1F26D3AE00CBDBAF /* CatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71977B3E1F26D3AE00CBDBAF /* CatViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,12 @@
 		717869D11EEFF734004E75C9 /* UIViewController+Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Runtime.m"; sourceTree = "<group>"; };
 		717869D31EEFFE41004E75C9 /* RuntimeMethodHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuntimeMethodHelper.h; sourceTree = "<group>"; };
 		717869D41EEFFE41004E75C9 /* RuntimeMethodHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeMethodHelper.m; sourceTree = "<group>"; };
+		71977B361F26D38600CBDBAF /* Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cat.h; sourceTree = "<group>"; };
+		71977B371F26D38600CBDBAF /* Cat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cat.m; sourceTree = "<group>"; };
+		71977B381F26D38600CBDBAF /* Cat+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Cat+Extend.h"; sourceTree = "<group>"; };
+		71977B391F26D38600CBDBAF /* Cat+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Cat+Extend.m"; sourceTree = "<group>"; };
+		71977B3D1F26D3AE00CBDBAF /* CatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatViewController.h; sourceTree = "<group>"; };
+		71977B3E1F26D3AE00CBDBAF /* CatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +126,7 @@
 				7178699A1EEFEF82004E75C9 /* AppDelegate.m */,
 				7178699C1EEFEF82004E75C9 /* ViewController.h */,
 				7178699D1EEFEF82004E75C9 /* ViewController.m */,
+				71977B3C1F26D38E00CBDBAF /* Cat */,
 				717869D31EEFFE41004E75C9 /* RuntimeMethodHelper.h */,
 				717869D41EEFFE41004E75C9 /* RuntimeMethodHelper.m */,
 				717869D01EEFF734004E75C9 /* UIViewController+Runtime.h */,
@@ -158,6 +168,19 @@
 				717869BD1EEFEF82004E75C9 /* Info.plist */,
 			);
 			path = RuntimeDemoUITests;
+			sourceTree = "<group>";
+		};
+		71977B3C1F26D38E00CBDBAF /* Cat */ = {
+			isa = PBXGroup;
+			children = (
+				71977B361F26D38600CBDBAF /* Cat.h */,
+				71977B371F26D38600CBDBAF /* Cat.m */,
+				71977B381F26D38600CBDBAF /* Cat+Extend.h */,
+				71977B391F26D38600CBDBAF /* Cat+Extend.m */,
+				71977B3D1F26D3AE00CBDBAF /* CatViewController.h */,
+				71977B3E1F26D3AE00CBDBAF /* CatViewController.m */,
+			);
+			name = Cat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,7 +319,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71977B3A1F26D38600CBDBAF /* Cat.m in Sources */,
 				717869CB1EEFEF97004E75C9 /* SuperClass.m in Sources */,
+				71977B3B1F26D38600CBDBAF /* Cat+Extend.m in Sources */,
+				71977B3F1F26D3AE00CBDBAF /* CatViewController.m in Sources */,
 				717869CE1EEFEFA3004E75C9 /* SubClass.m in Sources */,
 				7178699E1EEFEF82004E75C9 /* ViewController.m in Sources */,
 				717869D21EEFF734004E75C9 /* UIViewController+Runtime.m in Sources */,
@@ -382,7 +408,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -431,7 +457,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -540,6 +566,7 @@
 				717869C21EEFEF82004E75C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		717869C31EEFEF82004E75C9 /* Build configuration list for PBXNativeTarget "RuntimeDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -548,6 +575,7 @@
 				717869C51EEFEF82004E75C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		717869C61EEFEF82004E75C9 /* Build configuration list for PBXNativeTarget "RuntimeDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -556,6 +584,7 @@
 				717869C81EEFEF82004E75C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
