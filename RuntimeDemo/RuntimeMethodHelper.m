@@ -17,4 +17,8 @@
     NSLog(@"%@, %p", self, _cmd); // Print: <RuntimeMethodHelper: 0x7f814b498ee0>, 0x102d79929
 }
 
+- (void)run:(NSNumber *)num {
+    NSLog(@"%@", num); // Print: <RuntimeMethodHelper: 0x7f814b498ee0>, 0x102d79929
+}
+
 @end

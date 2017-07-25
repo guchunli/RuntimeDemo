@@ -13,4 +13,6 @@
 - (void)unknownMethod2;
 - (void)unknownMethod3;
 
+- (void)run:(NSNumber *)num;
+
 @end

@@ -11,6 +11,7 @@
 #import "SubClass.h"
 #import "UIViewController+Runtime.h"
 #import "RuntimeMethodHelper.h"
+#import <objc/message.h>
 
 @interface ViewController ()
 
@@ -21,15 +22,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self aboutClass];
-//    [self runtimeConstruct];
-//    [self aboutIvarAndProperty];
-
-    [self performSelector:@selector(unknownMethod)];
-    [self performSelector:@selector(unknownMethod2)];
-    [self performSelector:@selector(unknownMethod3)];
-//    [self performSelector:@selector(unknownMethod4)];
+    //    [self aboutClass];
+    //    [self runtimeConstruct];
+    //    [self aboutIvarAndProperty];
+    //    [self aboutMessage];
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+    //    [self performSelector:@selector(unknownMethod)];
+    //    [self performSelector:@selector(unknownMethod2)];
+    //    [self performSelector:@selector(unknownMethod3)];
+    if ([self respondsToSelector:@selector(unknownMethod4)]) {
+        [self performSelector:@selector(unknownMethod4)];
+    }
+    //    [self performSelector:@selector(unknownMethod4)];
+#pragma clang diagnostic pop
 }
+
 void dealWithExceptionForUnknownMethod(id self, SEL _cmd) {
     NSLog(@"%@, %p", self, _cmd); // Print: <ViewController: 0x7ff96be33e60>, 0x1078259fc
 }
@@ -68,6 +77,15 @@ void dealWithExceptionForUnknownMethod(id self, SEL _cmd) {
     }
 }
 
+- (BOOL)respondsToSelector:(SEL)aSelector {
+    if ([super respondsToSelector:aSelector]) {
+        return YES;
+    }
+    else {
+        NSLog(@"There is not this funtion");
+    }
+    return NO;
+}
 
 #pragma mark - 实例、类、父类、元类关系结构的示例代码
 -(void)aboutClass {
@@ -242,12 +260,21 @@ void runtimePropertySetterIMP(id self, SEL _cmd, NSString *s) {
 }
 
 #pragma mark - 运行时消息分发的代码示例
-//- (void)viewWillAppear:(BOOL)animated {
-//    NSLog(@"A1: %@", self); // Print: A1: <ViewController: 0x7fd06422b6a0>
-//    [super viewWillAppear:animated];
-//    NSLog(@"A2: %@", self); // Print: A2: <ViewController: 0x7fd06422b6a0>
-//}
+- (void)aboutMessage{
+    
+    //编译时获取指定方法名的SEL
+    SEL sel = @selector(alloc);
+    NSLog(@"%p", sel); // Print: 0x10338b545
+    //运行时获取指定方法名的SEL
+    SEL aSelector = NSSelectorFromString(@"alloc");
+    NSLog(@"%p", aSelector);
+}
 
+- (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"A1: %@", self); // Print: A1: <ViewController: 0x7fd06422b6a0>
+    [super viewWillAppear:animated];
+    NSLog(@"A2: %@", self); // Print: A2: <ViewController: 0x7fd06422b6a0>
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
